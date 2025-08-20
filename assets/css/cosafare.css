@@ -1,0 +1,118 @@
+/* ===== Cosa Fare – estilos propios  ===== */
+
+/* breadcrumb */
+.breadcrumb { width:100%; max-width:var(--container); margin:0 auto; }
+.breadcrumb ol { list-style:none; padding:0; margin:0 0 .5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+.breadcrumb a { color:var(--red-dark); text-decoration:none; font-weight:700; }
+.breadcrumb li::after { content:"›"; margin:0 .35rem; color:#a66; }
+.breadcrumb li:last-child::after { content:""; }
+
+/* barra de búsqueda */
+.cf-search {
+  display:grid; grid-template-columns:1fr minmax(180px,220px) auto;
+  gap:.6rem; width:100%; max-width:var(--container); margin: .25rem auto 0;
+}
+.cf-input{
+  border:2px solid var(--red-200); border-radius:12px; padding:.7rem 1rem; font-size:1rem;
+}
+.cf-select{
+  border:2px solid var(--red-200); border-radius:12px; padding:.65rem .9rem; background:#fff;
+}
+.cf-btn{
+  border:none; border-radius:12px; padding:.7rem 1rem; font-weight:800;
+  background:var(--red-main); color:#fff; cursor:pointer;
+}
+.cf-btn:hover{ background:var(--red-dark); }
+
+/* grilla de resultados */
+.cf-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+@media (max-width:900px){ .cf-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){ .cf-grid{ grid-template-columns:1fr; } }
+
+.cf-card{
+  background:#fff; border:2px solid var(--red-200); border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+  display:grid; grid-template-rows:160px auto;
+}
+.cf-card-media{ background:#f2f2f2 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"400\" height=\"200\"><rect width=\"100%\" height=\"100%\" fill=\"%23f2f2f2\"/><path d=\"M0,200 140,100 240,160 400,40 400,200 Z\" fill=\"%23e6e6e6\"/></svg>') center/cover no-repeat; }
+.cf-card-body{ padding:.9rem 1rem 1.1rem; display:grid; gap:.4rem; align-content:start; }
+.cf-card-title{ margin:.1rem 0; font-size:1.05rem; color:#2b2b2b; }
+.cf-card-text{ margin:0; color:#444; }
+.cf-card-meta{ font-size:.9rem; color:#7a0000; }
+.cf-card-cta{
+  justify-self:start; margin-top:.25rem; text-decoration:none; font-weight:800;
+  border:2px solid var(--red-main); color:var(--red-main); padding:.35rem .7rem; border-radius:12px;
+}
+.cf-card-cta:hover{ background:var(--red-main); color:#fff; }
+
+/* calendario */
+.cf-calendar{
+  max-width:620px; margin:0 auto; border:2px solid var(--red-200); border-radius:16px; background:#fff; box-shadow:var(--shadow);
+}
+.cal-header{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; border-bottom:1px solid #f1d5d5; }
+.cal-month{ font-weight:900; color:var(--red-dark); }
+.cal-btn{ border:none; background:#fff; width:36px; height:36px; border-radius:10px; box-shadow:inset 0 0 0 2px var(--red-200); cursor:pointer; }
+.cal-grid{
+  display:grid; grid-template-columns:repeat(7,1fr); gap:.25rem; padding: .75rem;
+  text-align:center; color:#444;
+}
+.cal-grid span{ font-weight:800; color:#7a0000; }
+.cal-grid b{ padding:.5rem 0; border-radius:8px; background:#fff; }
+.cal-grid b:nth-child(odd){ background:#fff7f7; }
+.cal-hint{ margin:0; padding:0 .9rem 1rem; color:#7a0000; font-size:.92rem; }
+.rail-item {
+  width: 220px;        
+  flex: 0 0 auto;      
+  text-align: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  padding: 1rem;
+}
+
+
+.logo-img {
+  display: block;
+  width: 100%;
+  height: 220px;        
+  border-radius: 12px;
+  object-fit: cover;    
+  object-position: center;
+}
+
+
+/* Título debajo */
+.rail-item figcaption{
+  margin-top: .7rem;
+  font-weight: 800;
+  color: #8e0000;
+}
+@media (max-width: 1024px) {
+  .rail-item {
+    width: 220px;   /* sigue igual */
+  }
+  .logo-img {
+    height: 220px;  /* sigue igual */
+  }
+}
+.rail-mask {
+  overflow: hidden;
+  width: 100%;
+}
+
+.rail-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollRail 20s linear infinite;
+}
+
+.rail-item {
+  flex: 0 0 auto;
+  width: 200px;   /* tamaño fijo para que sea uniforme */
+  text-align: center;
+}
+
+/* animación */
+@keyframes scrollRail {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
