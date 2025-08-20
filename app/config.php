@@ -4,9 +4,9 @@
 // Configuración de la base de datos PostgreSQL
 $DB_HOST = 'localhost';
 $DB_PORT = '5432';
-$DB_NAME = 'sonoerasmus';
+$DB_NAME = 'postgres';
 $DB_USER = 'postgres';
-$DB_PASS = 'diana';
+$DB_PASS = 'alba2003';
 
 try {
     // Conexión usando PDO para PostgreSQL

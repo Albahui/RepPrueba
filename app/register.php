@@ -6,7 +6,7 @@ try {
     $required_fields = ['nome', 'cognome', 'email', 'username', 'password', 'conferma_password'];
     foreach ($required_fields as $field) {
         if (empty($_POST[$field])) {
-            header("Location: ../register.html?error=Tutti i campi sono obbligatori.");
+            header("Location: ../register.html?error=" . urlencode("Tutti i campi sono obbligatori."));
             exit();
         }
     }
@@ -21,19 +21,19 @@ try {
 
     // Validación del email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../register.html?error=Il formato dell'indirizzo email non è valido.");
+        header("Location: ../register.html?error=" . urlencode("Il formato dell'indirizzo email non è valido."));
         exit();
     }
 
     // Validación de contraseñas
     if ($password_pura !== $conferma_password_pura) {
-        header("Location: ../register.html?error=Le password non corrispondono.");
+        header("Location: ../register.html?error=" . urlencode("Le password non corrispondono."));
         exit();
     }
 
     // Validación de longitud de contraseña
     if (strlen($password_pura) < 8) {
-        header("Location: ../register.html?error=La password deve contenere almeno 8 caratteri.");
+        header("Location: ../register.html?error=" . urlencode("La password deve contenere almeno 8 caratteri."));
         exit();
     }
 
@@ -44,7 +44,7 @@ try {
     $result = $stmt_check->fetch();
     
     if ($result['count'] > 0) {
-        header("Location: ../register.html?error=L'email o l'username sono già in uso. Scegli un altro.");
+        header("Location: ../register.html?error=" . urlencode("L'email o l'username sono già in uso. Scegli un altro."));
         exit();
     }
 
@@ -64,12 +64,12 @@ try {
     ]);
 
     // Registración exitosa - redirigir al login
-    header("Location: ../login.html?success=Registrazione completata con successo! Ora puoi accedere.");
+    header("Location: ../login.html?success=" . urlencode("Registrazione completata con successo! Ora puoi accedere."));
     exit();
 
 } catch (PDOException $e) {
     error_log("Error en registro: " . $e->getMessage());
-    header("Location: ../register.html?error=Errore durante la registrazione. Riprova più tardi.");
+    header("Location: ../register.html?error=" . urlencode("Errore durante la registrazione. Riprova più tardi."));
     exit();
 }
 ?>
